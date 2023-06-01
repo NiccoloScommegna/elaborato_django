@@ -1,0 +1,17 @@
+{% extends "authenticate/authenticate_base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %} Registrati {% endblock title %}
+
+{% block authenticate_content %}
+    <div class="container">
+        <h3>Registrati</h3>
+
+        <form action="" method="POST">
+            {{ form|crispy }}
+            {% csrf_token %}
+            <button class="btn btn-success" type="submit">Registrati</button>
+        </form>
+    </div>
+
+{% endblock authenticate_content %}
