@@ -27,6 +27,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+CART_SESSION_ID = "cart"
+SESSION_COOKIE_AGES = 86400
+
 
 # Application definition
 
@@ -130,6 +133,8 @@ MEDIA_ROOT = BASE_DIR / "media"
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+LOGIN_URL = "login"
 
 LOGIN_REDIRECT_URL = "home"
 

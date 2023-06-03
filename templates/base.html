@@ -32,7 +32,7 @@
                         <a class="nav-link text-light">Ciao {{ user.username }}!</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-light" href="#">Carrello</a>
+                        <a class="nav-link text-light" href="{% url "cart_detail" %}">Carrello</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-light" href="{% url "logout" %}">Esci</a>

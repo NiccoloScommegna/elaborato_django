@@ -1,6 +1,8 @@
-from django.shortcuts import render, get_object_or_404
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import render, get_object_or_404, redirect
 from django.db.models import Q
 from .models import Product, Category
+from .cart import Cart
 
 
 def category_detail(request, name):
@@ -24,3 +26,36 @@ def search(request):
         "query": query,
         "products": products,
     })
+
+
+@login_required
+def add_to_cart(request, product_id):
+    cart = Cart(request)
+    cart.add(product_id)
+
+    return redirect("cart_detail")
+
+
+def remove_from_cart(request, product_id):
+    cart = Cart(request)
+    cart.remove(str(product_id))
+
+    return redirect("cart_detail")
+
+
+def change_quantity(request, product_id):
+    action = request.GET.get("action", "")
+    if action:
+        quantity = 1
+        if action == "decrease":
+            quantity = -1
+
+        cart = Cart(request)
+        cart.add(product_id, quantity=quantity, update_quantity=True)
+
+    return redirect("cart_detail")
+
+
+def cart_detail(request):
+    cart = Cart(request)
+    return render(request, "cart_detail.html", {"cart": cart})
