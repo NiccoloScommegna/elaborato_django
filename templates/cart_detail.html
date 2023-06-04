@@ -5,7 +5,7 @@
 {% block web_state %} Carrello {% endblock %}
 
 {% block content %}
-    <div class="container">
+    <div class="container mb-4">
         {% if cart %}
             <h3>Il tuo carrello</h3>
             {% for item in cart %}
@@ -28,10 +28,10 @@
                             </div>
                             <div style="display: flex">
                                 <a href="{% url "change_quantity" item.product.id %}?action=decrease"
-                                   class="btn btn-primary">Diminuisci quanità</a>
+                                   class="btn">Diminuisci quanità</a>
                                 <a href="{% url "change_quantity" item.product.id %}?action=increase"
-                                   class="btn btn-primary">Aumenta quanità</a>
-                                <a href="{% url "remove_from_cart" item.product.id %}" class="btn btn-primary">Rimuovi
+                                   class="btn">Aumenta quanità</a>
+                                <a href="{% url "remove_from_cart" item.product.id %}" class="btn">Rimuovi
                                     dal carrello</a>
                             </div>
                         </div>
@@ -39,7 +39,10 @@
                 </div>
             {% endfor %}
             <hr>
-            <h4 style="text-align: center"><strong>Totale: </strong> {{ cart.get_total_cost }}€</h4>
+            <div style="display: flex; justify-content: space-between; align-items: center; padding-left: 20px; padding-right: 20px;">
+                <h4><strong>Totale: </strong> {{ cart.get_total_cost }}€</h4>
+                <a href="#" class="btn">Procedi all'acquisto</a>
+            </div>
         {% else %}
             <h3 style="text-align: center">Il tuo carrello è vuoto</h3>
         {% endif %}
