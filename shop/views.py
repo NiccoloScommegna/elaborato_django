@@ -1,7 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404, redirect
 from django.db.models import Q
-from .models import Product, Category, Order, OrderItem
+from .models import Product, Category, OrderItem
 from .cart import Cart
 from .forms import OrderCreateForm
 
@@ -87,7 +87,7 @@ def payment(request):
 
             cart.clear()
 
-            return redirect("home")
+            return redirect("payment_successful")
     else:
         form = OrderCreateForm()
 
@@ -103,3 +103,7 @@ def order_history(request):
     return render(request, "order_history.html", {
         "orders_items": orders_items
     })
+
+
+def payment_successful(request):
+    return render(request, "payment_successful.html")
