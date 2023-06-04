@@ -55,3 +55,7 @@ class Cart(object):
         total_cost = int(sum(item["product"].price * item["quantity"] for item in self.cart.values()))
         result = "{:.2f}".format(total_cost)
         return result
+
+    def clear(self):
+        del self.session[settings.CART_SESSION_ID]
+        self.session.modified = True

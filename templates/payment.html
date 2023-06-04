@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %} Pagamento {% endblock %}
+
+{% block web_state %} Pagamento {% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h3> Pagamento </h3>
+        <form action="" method="POST">
+            {{ form|crispy }}
+            {% csrf_token %}
+            <div style="display: flex; justify-content: space-between">
+                <h3><strong>Totale: </strong> {{ cart.get_total_cost }}€</h3>
+                <button class="btn" type="submit">Completa l'acquisto</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}

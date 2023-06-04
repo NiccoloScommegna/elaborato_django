@@ -41,7 +41,7 @@
             <hr>
             <div style="display: flex; justify-content: space-between; align-items: center; padding-left: 20px; padding-right: 20px;">
                 <h4><strong>Totale: </strong> {{ cart.get_total_cost }}€</h4>
-                <a href="#" class="btn">Procedi all'acquisto</a>
+                <a href="{% url "payment" %}" class="btn">Procedi all'acquisto</a>
             </div>
         {% else %}
             <h3 style="text-align: center">Il tuo carrello è vuoto</h3>
