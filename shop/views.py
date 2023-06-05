@@ -105,5 +105,6 @@ def order_history(request):
     })
 
 
+@login_required
 def payment_successful(request):
     return render(request, "payment_successful.html")
