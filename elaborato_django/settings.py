@@ -26,6 +26,7 @@ SECRET_KEY = "django-insecure-yp-mz^)igi8v1*_7u=1$f8^k10*roe4z=p-9j+a^igz)8a(f_4
 DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
+CSRF_TRUSTED_ORIGINS = ["https://elaboratodjango-production.up.railway.app"]
 
 CART_SESSION_ID = "cart"
 SESSION_COOKIE_AGES = 86400
