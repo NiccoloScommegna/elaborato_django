@@ -39,7 +39,8 @@
                 </div>
             {% endfor %}
             <hr>
-            <div style="display: flex; justify-content: space-between; align-items: center; padding-left: 20px; padding-right: 20px;">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <a href="{% url "home" %}" class="btn">Torna al negozio</a>
                 <h4><strong>Totale: </strong> {{ cart.get_total_cost }}€</h4>
                 <a href="{% url "payment" %}" class="btn">Procedi all'acquisto</a>
             </div>

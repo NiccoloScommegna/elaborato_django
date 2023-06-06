@@ -13,9 +13,9 @@
 
 </head>
 
-<body style="margin-bottom: 20px">
+<body class="body-wrapper" style="margin-bottom: 20px">
 <nav class="navbar navbar-expand-lg">
-    <div class="container-fluid">
+    <div class="container-fluid navbar-wrapper" style="white-space: nowrap">
         <a class="navbar-brand text-white" href="{% url "home" %}">Lakers Store</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -115,5 +115,12 @@
         background-color: #6610f2;
         border-color: #fff;
         color: #fff;
+    }
+
+    @media screen and (min-width: 1400px){
+        .body-wrapper {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
     }
 </style>

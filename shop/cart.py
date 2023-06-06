@@ -1,3 +1,4 @@
+from decimal import Decimal
 from django.conf import settings
 from .models import Product
 
@@ -52,8 +53,8 @@ class Cart(object):
         for p in self.cart.keys():
             self.cart[str(p)]["product"] = Product.objects.get(pk=p)
 
-        total_cost = int(sum(item["product"].price * item["quantity"] for item in self.cart.values()))
-        result = "{:.2f}".format(total_cost)
+        total_cost = float(sum(item["product"].price * item["quantity"] for item in self.cart.values()))
+        result = "{:.2f}".format(Decimal(total_cost))
         return result
 
     def clear(self):

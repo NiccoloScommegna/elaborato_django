@@ -100,6 +100,9 @@ def payment(request):
 @login_required
 def order_history(request):
     orders_items = OrderItem.objects.filter(order__shopped_by=request.user)
+    if orders_items:
+        orders_items = reversed(orders_items)
+
     return render(request, "order_history.html", {
         "orders_items": orders_items
     })
